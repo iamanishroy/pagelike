@@ -1,5 +1,4 @@
-
-![Logo](https://raw.githubusercontent.com/iamanishroy/pagelike/main/assets/logo-small.png)
+<!-- ![Logo](https://raw.githubusercontent.com/iamanishroy/pagelike/main/assets/logo-small.png) -->
 
 
 # PageLike
