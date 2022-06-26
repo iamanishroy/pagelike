@@ -1,0 +1,31 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["referentialIntegrity"]
+}
+
+datasource db {
+  provider             = "mysql"
+  url                  = env("PS_DB_URL")
+  shadowDatabaseUrl    = env("PS_SHADOW_DB_URL")
+  referentialIntegrity = "prisma"
+}
+
+model Client {
+  id        String   @id
+  createdAt DateTime @default(now())
+  browser   String?
+  country   String?
+  region    String?
+  city      String?
+  tz        String?
+  zip       String?
+  isp       String?
+}
+
+model Likes {
+  host       String   @id @unique
+  likeCount  Int
+  lastUpdate DateTime @default(now())
+}
+
+// // npx prisma generate
