@@ -1,0 +1,26 @@
+{
+  "name": "pagelike-plugin",
+  "version": "1.1.1",
+  "description": "Official plugin for PageLike.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "gulp watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Anish Roy",
+  "license": "MIT",
+  "devDependencies": {
+    "axios": "^0.27.2",
+    "browser-sync": "^2.27.10",
+    "bunchee": "^1.8.5",
+    "esbuild": "^0.14.47",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-esbuild": "^0.10.3",
+    "gulp-plumber": "^1.2.1",
+    "gulp-sass": "^5.1.0",
+    "gulp-umd": "^2.0.0",
+    "sass": "^1.53.0"
+  }
+}
