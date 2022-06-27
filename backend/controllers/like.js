@@ -1,28 +1,16 @@
 require("dotenv").config;
-const UrlParser = require("url-parse");
 const { StatusCodes, ReasonPhrases } = require("http-status-codes");
 const { addLike, getLike, removeLike } = require("../models/like");
 const { millify } = require("millify");
 
 exports.addLike = async (req, res) => {
-  let origin;
+  let transaction;
 
-  if (req.headers["Pass-Origin"]) {
-    origin = "https://page-like-test.dev";
+  if (req.query.level === "host") {
+    transaction = await addLike(req.headers["Origin-Host"]);
   } else {
-    origin = req.get("origin");
+    transaction = await addLike(req.headers["Origin-Path"]);
   }
-  var _url = new UrlParser(origin);
-
-  if (!_url.host) {
-    return res.status(StatusCodes.BAD_REQUEST).send({
-      success: false,
-      code: "BAD_REQUEST",
-      message: ReasonPhrases.BAD_REQUEST,
-    });
-  }
-
-  const transaction = await addLike(_url.host);
 
   if (!transaction) {
     return res.status(StatusCodes.INTERNAL_SERVER_ERROR).send({
@@ -40,24 +28,13 @@ exports.addLike = async (req, res) => {
 };
 
 exports.getLike = async (req, res) => {
-  let origin;
+  let transaction;
 
-  if (req.headers && req.headers["Pass-Origin"]) {
-    origin = "https://page-like-test.dev";
+  if (req.query.level === "host") {
+    transaction = await getLike(req.headers["Origin-Host"]);
   } else {
-    origin = req.get("origin");
+    transaction = await getLike(req.headers["Origin-Path"]);
   }
-  var _url = new UrlParser(origin);
-
-  if (!_url.host) {
-    return res.status(StatusCodes.BAD_REQUEST).send({
-      success: false,
-      code: "BAD_REQUEST",
-      message: ReasonPhrases.BAD_REQUEST,
-    });
-  }
-
-  const transaction = await getLike(_url.host);
 
   if (!transaction) {
     return res.status(StatusCodes.INTERNAL_SERVER_ERROR).send({
@@ -77,22 +54,13 @@ exports.getLike = async (req, res) => {
 exports.removeLike = async (req, res) => {
   let origin;
 
-  if (req.headers["Pass-Origin"]) {
-    origin = "https://page-like-test.dev";
+  if (req.query.level === "host") {
+    origin = req.headers["Origin-Host"];
   } else {
-    origin = req.get("origin");
-  }
-  var _url = new UrlParser(origin);
-
-  if (!_url.host) {
-    return res.status(StatusCodes.BAD_REQUEST).send({
-      success: false,
-      code: "BAD_REQUEST",
-      message: ReasonPhrases.BAD_REQUEST,
-    });
+    origin = req.headers["Origin-Path"];
   }
 
-  const [success, transaction] = await removeLike(_url.host);
+  const [success, transaction] = await removeLike(origin);
 
   if (!transaction) {
     return res.status(StatusCodes.INTERNAL_SERVER_ERROR).send({

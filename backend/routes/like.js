@@ -1,22 +1,11 @@
 const router = require("express").Router();
 const { addLike, getLike, removeLike } = require("../controllers/like");
-const validateAgent = require('./../middleware/validateAgent')
-router.post(
-    "/",
-    validateAgent,
-    addLike
-);
+const parseOrigin = require("../middleware/parseOrigin");
+const validateAgent = require("./../middleware/validateAgent");
+router.post("/", validateAgent, parseOrigin, addLike);
 
-router.get(
-    "/",
-    validateAgent,
-    getLike
-);
+router.get("/", validateAgent, parseOrigin, getLike);
 
-router.delete(
-    "/",
-    validateAgent,
-    removeLike
-);
+router.delete("/", validateAgent, parseOrigin, removeLike);
 
 module.exports = router;

@@ -5,9 +5,10 @@
 
 An opensource Web widget that allows you to quickly and easily add a like button to your very liked website.
 
-<!-- ## Demo
+<!-- ## Demo -->
+![Example](https://raw.githubusercontent.com/iamanishroy/pagelike/main/assets/button.png)
 
-Insert gif or link to demo -->
+<!-- Insert gif or link to demo -->
 
 
 <!-- ## Features
@@ -60,4 +61,10 @@ That's all!! You are now ready to start receiving likes on your page.
 Contributions are always welcome!
 
 Please adhere to this project's `code of conduct`.
+
+## Roadmap
+
+- Add route level like button ✅
+- Additional customization support
+- Add react plugin
 
