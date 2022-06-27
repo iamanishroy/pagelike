@@ -27,7 +27,7 @@ Simply include the JavaScript **`<script>`** tag and CSS **`<link>`** tag in the
 ### Script Tag 
 
 ```html
-<script defer src="https://unpkg.com/pagelike-plugin@1.0.2/dist/js/index.js"></script>
+<script defer src="https://unpkg.com/pagelike-plugin@1.2.0/dist/js/index.js"></script>
 ```
 
 #### Custom Attributes
@@ -37,11 +37,12 @@ Simply include the JavaScript **`<script>`** tag and CSS **`<link>`** tag in the
 | `custom`  | `true`  | `true`| enables using custom attributes |
 | `pl-button-location` | `TR` | `TL` \| `TR` \| `BL` \| `BR` | defines the location of the button | 
 | `z-index` | `1` | `Number` | defines custom z-index for button |
+| `level` | `path` | `path` \| `host` | defines custom z-index for button |
 
 ### Link Tag 
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pagelike-plugin@1.0.2/dist/css/styles.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pagelike-plugin@1.2.0/dist/css/styles.css" />
 ```
 That's all!! You are now ready to start receiving likes on your page.
 
