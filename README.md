@@ -37,7 +37,7 @@ Simply include the JavaScript **`<script>`** tag and CSS **`<link>`** tag in the
 | `custom`  | `true`  | `true`| enables using custom attributes |
 | `pl-button-location` | `TR` | `TL` \| `TR` \| `BL` \| `BR` | defines the location of the button | 
 | `z-index` | `1` | `Number` | defines custom z-index for button |
-| `level` | `path` | `path` \| `host` | defines custom z-index for button |
+| `level` | `path` | `path` \| `host` | `host`: every page within that domain will have same counter; `path`: every page will have a separate counter   |
 
 ### Link Tag 
 
