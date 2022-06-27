@@ -4,13 +4,7 @@ const { addLike, getLike, removeLike } = require("../models/like");
 const { millify } = require("millify");
 
 exports.addLike = async (req, res) => {
-  let transaction;
-
-  if (req.query.level === "host") {
-    transaction = await addLike(req.headers["Origin-Host"]);
-  } else {
-    transaction = await addLike(req.headers["Origin-Path"]);
-  }
+  const transaction = await addLike(req.headers["Origin"]);
 
   if (!transaction) {
     return res.status(StatusCodes.INTERNAL_SERVER_ERROR).send({
@@ -28,13 +22,7 @@ exports.addLike = async (req, res) => {
 };
 
 exports.getLike = async (req, res) => {
-  let transaction;
-
-  if (req.query.level === "host") {
-    transaction = await getLike(req.headers["Origin-Host"]);
-  } else {
-    transaction = await getLike(req.headers["Origin-Path"]);
-  }
+  const transaction = await getLike(req.headers["Origin"]);
 
   if (!transaction) {
     return res.status(StatusCodes.INTERNAL_SERVER_ERROR).send({
@@ -52,15 +40,7 @@ exports.getLike = async (req, res) => {
 };
 
 exports.removeLike = async (req, res) => {
-  let origin;
-
-  if (req.query.level === "host") {
-    origin = req.headers["Origin-Host"];
-  } else {
-    origin = req.headers["Origin-Path"];
-  }
-
-  const [success, transaction] = await removeLike(origin);
+  const [success, transaction] = await removeLike(req.headers["Origin"]);
 
   if (!transaction) {
     return res.status(StatusCodes.INTERNAL_SERVER_ERROR).send({

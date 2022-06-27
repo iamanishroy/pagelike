@@ -7,7 +7,7 @@ const parseOrigin = function (req, res, next) {
   if (req.headers && req.headers["Pass-Origin"]) {
     origin = "https://page-like-test.dev";
   } else {
-    origin = req.get("origin");
+    origin = req.query["origin"];
   }
 
   let { pathname, host } = new UrlParser(origin);
@@ -24,8 +24,11 @@ const parseOrigin = function (req, res, next) {
     pathname = pathname.slice(0, -1);
   }
 
-  req.headers["Origin-Path"] = host + pathname;
-  req.headers["Origin-Host"] = host;
+  if (req.query.level === "host" || req.body.params?.level === "host") {
+    req.headers["Origin"] = host;
+  } else {
+    req.headers["Origin"] = host + pathname;
+  }
   next();
 };
 

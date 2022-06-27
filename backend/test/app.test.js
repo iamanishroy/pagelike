@@ -5,7 +5,7 @@ const app = require("../index");
 describe("Add a like", () => {
   it("POST /like --> should give error for Invalid User Agent", () => {
     return request(app)
-      .post("/api/like")
+      .post("/api/like/")
       .set("validate-agent", true)
       .expect("Content-Type", /json/)
       .expect(StatusCodes.FORBIDDEN)
@@ -23,7 +23,7 @@ describe("Add a like", () => {
 
   it("POST /like --> should add a like", () => {
     return request(app)
-      .post("/api/like")
+      .post("/api/like/")
       .expect("Content-Type", /json/)
       .expect(StatusCodes.ACCEPTED)
       .then((response) => {
