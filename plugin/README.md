@@ -1,6 +1,23 @@
+<!-- ![Logo](https://raw.githubusercontent.com/iamanishroy/pagelike/main/assets/logo-small.png) -->
+
+
 # PageLike
 
 An opensource Web widget that allows you to quickly and easily add a like button to your very liked website.
+
+<!-- ## Demo -->
+![Example](https://raw.githubusercontent.com/iamanishroy/pagelike/main/assets/button.png)
+
+<!-- Insert gif or link to demo -->
+
+
+<!-- ## Features
+
+- Light/dark mode toggle
+- Live previews
+- Fullscreen mode
+- Cross platform -->
+
 
 ## Plugin Reference
 
@@ -10,7 +27,7 @@ Simply include the JavaScript **`<script>`** tag and CSS **`<link>`** tag in the
 ### Script Tag 
 
 ```html
-<script defer src="https://unpkg.com/pagelike-plugin@1.0.2/dist/js/index.js"></script>
+<script defer src="https://unpkg.com/pagelike-plugin@1.2.2/dist/js/index.js"></script>
 ```
 
 #### Custom Attributes
@@ -20,13 +37,20 @@ Simply include the JavaScript **`<script>`** tag and CSS **`<link>`** tag in the
 | `custom`  | `true`  | `true`| enables using custom attributes |
 | `pl-button-location` | `TR` | `TL` \| `TR` \| `BL` \| `BR` | defines the location of the button | 
 | `z-index` | `1` | `Number` | defines custom z-index for button |
+| `level` | `path` | `path` \| `host` | `host`: every page within that domain will have same counter; `path`: every page will have a separate counter   |
 
 ### Link Tag 
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pagelike-plugin@1.0.2/dist/css/styles.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pagelike-plugin@1.2.2/dist/css/styles.css" />
 ```
 That's all!! You are now ready to start receiving likes on your page.
+
+
+<!-- ## Screenshots
+
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here) -->
+
 
 ## License
 
@@ -38,4 +62,10 @@ That's all!! You are now ready to start receiving likes on your page.
 Contributions are always welcome!
 
 Please adhere to this project's `code of conduct`.
+
+## Roadmap
+
+- Add route level like button ✅
+- Additional customization support
+- Add react plugin
 

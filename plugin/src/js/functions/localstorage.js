@@ -1,9 +1,16 @@
+import urlParser from "url-parse";
 var KEY = "pageLiked";
 var HOST_LEVEL_KEY = "pageLiked-host";
 var KEY_SHOW = "pageLiked-btn-show";
 
 export default function hasClientAlreadyLiked(level = "path") {
-  var lsData = localStorage.getItem(level === "path" ? KEY : HOST_LEVEL_KEY);
+  var path = "/";
+  if (level === "path") {
+    path = urlParser(window.location.href).pathname;
+  }
+  var lsData = localStorage.getItem(
+    level === "path" ? KEY + path : HOST_LEVEL_KEY
+  );
   if (lsData) {
     return lsData === "true" ? true : false;
   }
@@ -11,11 +18,16 @@ export default function hasClientAlreadyLiked(level = "path") {
 }
 
 export function setLiked(val, level = "path") {
-  localStorage.setItem(level === "path" ? KEY : HOST_LEVEL_KEY, val);
+  var path = "/";
+  if (level === "path") {
+    path = urlParser(window.location.href).pathname;
+  }
+  localStorage.setItem(level === "path" ? KEY + path : HOST_LEVEL_KEY, val);
 }
 
 export function getButtonShow() {
-  var lsData = localStorage.getItem(KEY_SHOW);
+  var path = urlParser(window.location.href).pathname;
+  var lsData = localStorage.getItem(KEY_SHOW + "-" + path);
   if (lsData) {
     return lsData === "false" ? false : true;
   }
@@ -23,5 +35,6 @@ export function getButtonShow() {
 }
 
 export function setButtonShow(val) {
-  localStorage.setItem(KEY_SHOW, val);
+  var path = urlParser(window.location.href).pathname;
+  localStorage.setItem(KEY_SHOW + "-" + path, val);
 }
