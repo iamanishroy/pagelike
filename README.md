@@ -65,7 +65,6 @@ Please adhere to this project's `code of conduct`.
 
 ## Roadmap
 
-- Add route level like button ✅
-- Additional customization support
 - Add react plugin
+- Handle view count
 
