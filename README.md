@@ -6,7 +6,7 @@
 An opensource Web widget that allows you to quickly and easily add a like button to your very liked website.
 
 <!-- ## Demo -->
-![Example](https://raw.githubusercontent.com/iamanishroy/pagelike/main/assets/button.png)
+![Example](https://user-images.githubusercontent.com/62830866/203528800-23ba7697-3ad8-4a2f-88c7-990d6b3fe673.png)
 
 <!-- Insert gif or link to demo -->
 
