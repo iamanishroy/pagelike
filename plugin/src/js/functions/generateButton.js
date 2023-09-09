@@ -6,7 +6,7 @@ import hasClientAlreadyLiked from "./localstorage";
 export default async function generateButton() {
   var scriptTag = document.querySelectorAll("[data-pl-custom]")[0] || null;
   // variables
-  var customization = window._pl;
+  var customization = window._pl || {};
 
   var location =
     scriptTag?.getAttribute("data-pl-button-location") ||
@@ -30,8 +30,6 @@ export default async function generateButton() {
   body.appendChild(button);
 
   button.addEventListener("click", function (ev) {
-    console.log(ev.target, button);
-    console.log("click");
     ev.preventDefault();
     handleClick(ev.target, level);
   });

@@ -17,7 +17,7 @@ Simply include the JavaScript **`<script>`** tag and CSS **`<link>`** tag in the
 ```html
 <script
   defer
-  src="https://unpkg.com/pagelike-plugin@1.2.9/dist/js/index.js"
+  src="https://unpkg.com/pagelike-plugin@1.2.91/dist/js/index.js"
 ></script>
 ```
 
@@ -35,7 +35,7 @@ Simply include the JavaScript **`<script>`** tag and CSS **`<link>`** tag in the
 ```html
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/pagelike-plugin@1.2.9/dist/css/styles.css"
+  href="https://cdn.jsdelivr.net/npm/pagelike-plugin@1.2.91/dist/css/styles.css"
 />
 ```
 
