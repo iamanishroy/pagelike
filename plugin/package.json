@@ -1,6 +1,6 @@
 {
   "name": "pagelike-plugin",
-  "version": "1.2.91",
+  "version": "1.2.92",
   "description": "Official plugin for PageLike.",
   "main": "index.js",
   "scripts": {
