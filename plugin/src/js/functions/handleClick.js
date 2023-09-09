@@ -9,6 +9,8 @@ function updateButton(el, liked, count) {
 
 export default async function handleClick(el, level) {
   el.disabled = true;
+  el.setAttribute("loading", true);
+
   var res, liked;
   if (hasClientAlreadyLiked(level)) {
     res = await removeLike(level);
@@ -21,5 +23,7 @@ export default async function handleClick(el, level) {
     setLiked(liked, level);
     updateButton(el, liked, res.totalLike);
   }
+
   el.disabled = false;
+  el.setAttribute("loading", false);
 }

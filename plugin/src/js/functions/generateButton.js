@@ -4,11 +4,18 @@ import handleClick from "./handleClick";
 import hasClientAlreadyLiked from "./localstorage";
 
 export default async function generateButton() {
-  var scriptTag = document.querySelectorAll("[custom]")[0] || null;
+  var scriptTag = document.querySelectorAll("[data-pl-custom]")[0] || null;
   // variables
-  var location = scriptTag?.getAttribute("pl-button-location") || "TR";
-  var zIndex = scriptTag?.getAttribute("z-index") || "100";
-  var level = scriptTag?.getAttribute("level") || "path";
+  var customization = window._pl;
+
+  var location =
+    scriptTag?.getAttribute("data-pl-button-location") ||
+    customization.buttonLocation ||
+    "TR";
+  var zIndex =
+    scriptTag?.getAttribute("data-pl-z-index") || customization.zIndex || "100";
+  var level =
+    scriptTag?.getAttribute("data-pl-level") || customization.level || "path";
 
   var button = document.createElement("button");
   button.classList.add("page-like-button");
@@ -23,6 +30,8 @@ export default async function generateButton() {
   body.appendChild(button);
 
   button.addEventListener("click", function (ev) {
+    console.log(ev.target, button);
+    console.log("click");
     ev.preventDefault();
     handleClick(ev.target, level);
   });

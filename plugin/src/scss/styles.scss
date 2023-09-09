@@ -22,6 +22,7 @@
   cursor: pointer;
   display: flex;
   align-items: center;
+  --width: 120px;
 
   /* button location */
   position: fixed;
@@ -72,6 +73,7 @@
     background-color: var(--pl-background-active);
     border: 2px solid var(--pl-border-active);
     font-size: 0;
+    --width: 77px;
 
     &::before {
       content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABmJLR0QA/wD/AP+gvaeTAAADtElEQVRYhe2WX2xTZRjGn/ec03Zd2/3rIGQOTGghJKsJEpkaTSCy4TZdY4QmcuGF8cIpNybceWF27cRhIFETSYaYqOmWSUbFlAU2xIzAlmg6ncvWgnSx6Lr+Wf+sa8/5Xi9kBttuHDfv3O/y/Z7zPs/35nzfOcAmm/zfIb3C9nbPFlUWNYomJS5d8s6X0xzsPFZv4HxtgYzxkaEvohsO8LTHY7Zk+bgC6tLAjpW6BNxmpo/yWctpADBY0scloi7B7FzRyKCgCv5YzVjPjIz05f51gJZOzw5F4BsBbnqm4RFubd5P1VYrAiPXcSO2wD9lUySBJgGCgHA1WWzcbKuhWoMR8UIe46kEBzJ/aViRO/wXvgzrDuB2u215YbpVKcvO3tdfk3e0PQcYFHChgGzvWYhYEhOpJD4IBzUiwolGh/y4raqkzw/pJN4Ph7RlTcxwoeIJv/98plgjlwvwqNP1LgMvfdL1htT4YgvU6RByXh+WfVfAmSUAQIOpAgdq7FJ73VZpp7my7BS3GSuwu9IqXU1E7ZALWmhmaqRYIxUXPB6PTCR1dex0UMPzB6AGprH02QC0u78BBfUf2nqDEXaDsaz5Ci6LDU9W1ZBM0pvd3d0lfiWFVApOwWxveaoZkGUsD3+/poEemqtqoTFv+e7mlLN4rSRAQUEdAFgrzeDsEsS8rtO0JjWKct9N2IvXlOKCTLjHDEz6R2EPzAKCNxxgvpD/u3fxWskE/EPeOxJR+HosypzJbtgcAMaScZaIwv4h752HBgDAAnxmIp2kW6nEhs1vLMbxY3qRWOA0gJJxlguAWKSul4Dxk+GgGFuMr9t8LBnHqbmQkIhuLvxee6qcpuw9EIlMiD279/arEAfHkrHGHGtwWaogkb5Ph8aMz/+YQ18kDAaNK2xoGx3tK7mEVg0AADMzgdz2hq3nJGOlaTqbeTaQSYl91moyy6s+AgBYVFW8Fw6Ka4kYgfh8ykxHrnz9VWo1va4ttXYcOSYRfWpRFNOJRof8mNVWVvdLJo2e8Ky2qKkaM73l93nPPqz32tu5T2hmanKXo2lgGdx6LRGtN5BEeywW0AP5L8eiODkXFDkh7moyHxq+2P+tnt66AgDA7OzPC9v3Np2jPDsCmZTrdm6J91mrSQPw4VwIg9F7AMOXN6ptVy8M/qq3r+4fkgdpeeHo2xKhZ5vBBCJQJJ8Hg9+5fLG/B2WO2n8eAAAOdb6838DyoABXCOZXhn0Dw+vttW4OH37V4na7y7+Rm2yyiU7+BBDKhEg7Gy/OAAAAAElFTkSuQmCC");
@@ -81,5 +83,37 @@
     &::after {
       color: var(--pl-number-active);
     }
+  }
+
+  // button width
+  width: var(--width);
+
+  --timing: 2s;
+
+  &[loading="true"] {
+    background-image: linear-gradient(
+      to right,
+      rgba(250, 82, 82, 0.3),
+      rgba(250, 82, 82, 0.3) 16.65%,
+      rgba(190, 75, 219, 0.3) 16.65%,
+      rgba(190, 75, 219, 0.3) 33.3%,
+      rgba(76, 110, 245, 0.3) 33.3%,
+      rgba(76, 110, 245, 0.3) 49.95%,
+      rgba(64, 192, 87, 0.3) 49.95%,
+      rgba(64, 192, 87, 0.3) 66.6%,
+      rgba(250, 176, 5, 0.3) 66.6%,
+      rgba(250, 176, 5, 0.3) 83.25%,
+      rgba(253, 126, 20, 0.3) 83.25%,
+      rgba(253, 126, 20, 0.3) 100%,
+      rgba(250, 82, 82, 0.3) 100%
+    );
+    animation: var(--timing) linear dance6123 infinite;
+    transform: scale(1.1) translateY(-1px);
+  }
+}
+
+@keyframes dance6123 {
+  to {
+    background-position: var(--width);
   }
 }
