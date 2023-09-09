@@ -12,7 +12,7 @@
   "author": "Anish Roy",
   "license": "ISC",
   "dependencies": {
-    "@prisma/client": "^4.11.0",
+    "@prisma/client": "^5.2.0",
     "cors": "^2.8.5",
     "debug": "^4.3.4",
     "dotenv": "^16.0.1",

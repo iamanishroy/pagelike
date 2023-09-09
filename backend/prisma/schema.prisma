@@ -4,10 +4,9 @@ generator client {
 }
 
 datasource db {
-  provider             = "postgresql"
-  url                  = env("DB_URL")
-  // shadowDatabaseUrl    = env("PS_SHADOW_DB_URL")
-  referentialIntegrity = "prisma"
+  provider     = "cockroachdb"
+  url          = env("DB_URL")
+  relationMode = "prisma"
 }
 
 model Client {
@@ -27,5 +26,3 @@ model Likes {
   likeCount  Int
   lastUpdate DateTime @default(now())
 }
-
-// // npx prisma generate
